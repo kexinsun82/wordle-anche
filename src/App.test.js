@@ -11,3 +11,36 @@ test("renders with a specific class name", () => {
   const elementWithClassName = container.querySelector(".columns"); // Replace 'your-class-name' with the actual class name
   expect(elementWithClassName).toBeInTheDocument();
 });
+
+test("renders with a specific class name", () => {
+  const { container } = render(<App />);
+
+  const elementWithClassName = container.querySelector(".board");
+  expect(elementWithClassName).toBeInTheDocument();
+});
+
+test("main container has correct styles", () => {
+  const { container } = render(<App />);
+  const mainContainer = container.querySelector("#main");
+  
+  expect(mainContainer).toHaveStyle("flex-direction: column");
+});
+
+test("header title has correct class", () => {
+  const { container } = render(<App />);
+  const titleElement = container.querySelector(".title");
+
+  expect(titleElement).toBeInTheDocument();
+});
+
+test("keyboard has correct styles", () => {
+  const { container } = render(<App />);
+  const keyboard = container.querySelector(".keyboard"); 
+
+  expect(keyboard).toHaveStyle("border-radius: 3px");
+});
+
+test("HTML should have the correct lang attribute in the <html> tag", () => {
+  const expectedLang = "en";
+  expect(htmlContent).toContain("html", "lang", expectedLang);
+});
