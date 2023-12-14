@@ -34,13 +34,13 @@ test("header title has correct class", () => {
 });
 
 test("keyboard has correct styles", () => {
-  const { container } = render(<App />);
-  const keyboard = container.querySelector(".keyboard"); 
-
-  expect(keyboard).toHaveStyle("border-radius: 3px");
+  render(<App />);
+  const keyboard = screen.getByClassName("keyboard");  
+  expect(keyboard).toHaveStyle("width: 600px; height: 170px;");
 });
 
 test("HTML should have the correct lang attribute in the <html> tag", () => {
   const expectedLang = "en";
-  expect(htmlContent).toContain("html", "lang", expectedLang);
+  const htmlContent = document.documentElement.outerHTML;
+  expect(htmlContent).toContain(`html lang="${expectedLang}"`);
 });
