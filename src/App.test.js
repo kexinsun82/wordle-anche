@@ -12,11 +12,10 @@ test("renders with a specific class name", () => {
   expect(elementWithClassName).toBeInTheDocument();
 });
 
-test("renders with a specific class name", () => {
-  const { container } = render(<App />);
-
-  const elementWithClassName = container.querySelector(".board");
-  expect(elementWithClassName).toBeInTheDocument();
+test('board has correct styles', () => {
+  render(<App />);
+  const board = screen.getByClassName('board'); 
+  expect(board).toHaveStyle('height: 100vh; display: flex;');
 });
 
 test("main container has correct styles", () => {
