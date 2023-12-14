@@ -12,6 +12,15 @@ test("renders with a specific class name", () => {
   expect(elementWithClassName).toBeInTheDocument();
 });
 
+test("renders with a specific class name", () => {
+  // Render the component
+  const { container } = render(<App />);
+
+  // Check if the element with the specified class exists
+  const elementWithClassName = container.querySelector(".board"); // Replace 'your-class-name' with the actual class name
+  expect(elementWithClassName).toBeInTheDocument();
+});
+
 test('board has correct styles', () => {
   render(<App />);
   const board = screen.getByClassName('board'); 
