@@ -12,13 +12,14 @@ test("renders with a specific class name", () => {
   expect(elementWithClassName).toBeInTheDocument();
 });
 
-test("renders with a specific class name", () => {
-  // Render the component
-  const { container } = render(<App />);
+import Navbar from './Navbar'; // Adjust the import path accordingly
 
-  // Check if the element with the specified class exists
-  const elementWithClassName = container.querySelector(".board"); // Replace 'your-class-name' with the actual class name
-  expect(elementWithClassName).toBeInTheDocument();
+test('Navbar displays correct heading text', () => {
+  render(<Navbar />);
+
+  // Check if the heading with the correct text is present
+  const headingElement = screen.getByRole('heading', { name: /Wordle-anche!/i });
+  expect(headingElement).toBeInTheDocument();
 });
 
 test('board has correct styles', () => {
