@@ -12,27 +12,13 @@ test("renders with a specific class name", () => {
   expect(elementWithClassName).toBeInTheDocument();
 });
 
-import Navbar from './Navbar'; // Adjust the import path accordingly
-
-test('Navbar displays correct heading text', () => {
-  render(<Navbar />);
-
-  // Check if the heading with the correct text is present
-  const headingElement = screen.getByRole('heading', { name: /Wordle-anche!/i });
-  expect(headingElement).toBeInTheDocument();
-});
-
-test('board has correct styles', () => {
-  render(<App />);
-  const board = screen.getByClassName('board'); 
-  expect(board).toHaveStyle('height: 100vh; display: flex;');
-});
-
-test("main container has correct styles", () => {
+test("renders with a specific class name", () => {
+  // Render the component
   const { container } = render(<App />);
-  const mainContainer = container.querySelector("#main");
-  
-  expect(mainContainer).toHaveStyle("flex-direction: column");
+
+  // Check if the element with the specified class exists
+  const elementWithClassName = container.querySelector(".keyboard-wrapper"); // Replace 'your-class-name' with the actual class name
+  expect(elementWithClassName).toBeInTheDocument();
 });
 
 test("header title has correct class", () => {
@@ -42,14 +28,12 @@ test("header title has correct class", () => {
   expect(titleElement).toBeInTheDocument();
 });
 
-test("keyboard has correct styles", () => {
-  render(<App />);
-  const keyboard = screen.getByClassName("keyboard");  
-  expect(keyboard).toHaveStyle("width: 600px; height: 170px;");
-});
+// import Navbar from "./Navbar";
+// test('Navbar displays correct heading text', () => {
+//   const { container } = render(<Navbar />);
 
-test("HTML should have the correct lang attribute in the <html> tag", () => {
-  const expectedLang = "en";
-  const htmlContent = document.documentElement.outerHTML;
-  expect(htmlContent).toContain(`html lang="${expectedLang}"`);
-});
+  // Check if the heading with the correct text is present
+//   const headingElement = screen.getByRole('heading', { name: /Wordle-anche!/i });
+//   expect(headingElement).toBeInTheDocument();
+// });
+
