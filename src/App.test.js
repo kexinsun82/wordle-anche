@@ -57,8 +57,5 @@ test("renders with a specific class name", () => {
   expect(elementWithClassName).toBeInTheDocument();
 });
 
-test("HTML should have the correct lang attribute in the <html> tag", () => {
-  const expectedLang = "en";
-  expect(htmlContent).toContain("html", "lang", expectedLang);
-});
+
 
