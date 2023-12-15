@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect"; // Import this for better matchers
 import App from "./App"; // Import your component
 import Navbar from "./Navbar";
+import Keyboard from "./Keyboard";
 
 test("renders with a specific class name", () => {
   // Render the component
@@ -37,11 +38,22 @@ test("renders with a specific class name", () => {
   const elementWithClassName = container.querySelector(".shimmer"); // Replace 'your-class-name' with the actual class name
   expect(elementWithClassName).toBeInTheDocument();
 });
-// import Navbar from "./Navbar";
-// test('Navbar displays correct heading text', () => {
-//   render(<Navbar />);
 
-//   const headingElement = screen.getByText(/Wordle-anche!/i);
-//   expect(headingElement).toBeInTheDocument();
-// });
+test("renders with a specific class name", () => {
+  // Render the component
+  const { container } = render(<Navbar />);
+
+  // Check if the element with the specified class exists
+  const elementWithClassName = container.querySelector("#header-container"); // Replace 'your-class-name' with the actual class name
+  expect(elementWithClassName).toBeInTheDocument();
+});
+
+test("renders with a specific class name", () => {
+  // Render the component
+  const { container } = render(<Keyboard />);
+
+  // Check if the element with the specified class exists
+  const elementWithClassName = container.querySelector(".row"); // Replace 'your-class-name' with the actual class name
+  expect(elementWithClassName).toBeInTheDocument();
+});
 
