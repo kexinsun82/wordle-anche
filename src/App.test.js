@@ -28,12 +28,11 @@ test("header title has correct class", () => {
   expect(titleElement).toBeInTheDocument();
 });
 
-// import Navbar from "./Navbar";
-// test('Navbar displays correct heading text', () => {
-//   const { container } = render(<Navbar />);
+import Navbar from "./Navbar";
+test('Navbar displays correct heading text', () => {
+  render(<Navbar />);
 
-  // Check if the heading with the correct text is present
-//   const headingElement = screen.getByRole('heading', { name: /Wordle-anche!/i });
-//   expect(headingElement).toBeInTheDocument();
-// });
+  const headingElement = screen.getByText(/Wordle-anche!/i);
+  expect(headingElement).toBeInTheDocument();
+});
 
